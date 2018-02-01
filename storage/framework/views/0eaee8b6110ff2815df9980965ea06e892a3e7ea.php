@@ -1,6 +1,4 @@
-@extends("admin.layout.main")
-
-@section("content")
+<?php $__env->startSection("content"); ?>
 <!-- Main content -->
 <section class="content">
     <!-- Small boxes (Stat box) -->
@@ -11,4 +9,5 @@
         </div>
     </div>
 </section>
-@endsection
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make("admin.layout.main", array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

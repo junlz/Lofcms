@@ -17,27 +17,27 @@
                 </ul>
             </li>
 
-            @can('post')
+            <?php if (app(\Illuminate\Contracts\Auth\Access\Gate::class)->check('post')): ?>
             <li class="active treeview">
                 <a href="/admin/posts">
                     <i class="fa fa-dashboard"></i> <span>文章管理</span>
                 </a>
             </li>
-            @endcan
-            @can('topic')
+            <?php endif; ?>
+            <?php if (app(\Illuminate\Contracts\Auth\Access\Gate::class)->check('topic')): ?>
             <li class="active treeview">
                 <a href="/admin/topics">
                     <i class="fa fa-dashboard"></i> <span>专题管理</span>
                 </a>
             </li>
-            @endcan
-            @can('notice')
+            <?php endif; ?>
+            <?php if (app(\Illuminate\Contracts\Auth\Access\Gate::class)->check('notice')): ?>
             <li class="active treeview">
                 <a href="/admin/notices">
                     <i class="fa fa-dashboard"></i> <span>通知管理</span>
                 </a>
             </li>
-            @endcan
+            <?php endif; ?>
         </ul>
     </section>
     <!-- /.sidebar -->

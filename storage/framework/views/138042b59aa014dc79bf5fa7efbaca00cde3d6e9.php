@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="csrf-token" content="{{ csrf_token() }}">
+    <meta name="csrf-token" content="<?php echo e(csrf_token()); ?>">
     <title>AdminLTE 2 | Dashboard</title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
@@ -42,16 +42,16 @@
 <body class="hold-transition skin-blue sidebar-mini">
 <div class="wrapper">
 
-    @include("admin.layout.header")
-    @include("admin.layout.sidebar")
+    <?php echo $__env->make("admin.layout.header", array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+    <?php echo $__env->make("admin.layout.sidebar", array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
 
-        @yield("content")
+        <?php echo $__env->yieldContent("content"); ?>
         <!-- /.content -->
     </div>
     <!-- /.content-wrapper -->
-    @include("admin.layout.footer")
+    <?php echo $__env->make("admin.layout.footer", array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
     <!-- /.control-sidebar -->
     <!-- Add the sidebar's background. This div must be placed
          immediately after the control sidebar -->
@@ -96,6 +96,6 @@
 <script src="/adminlte/dist/js/pages/dashboard.js"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="/adminlte/dist/js/demo.js"></script>
-<script src="{{ mix('/js/admin.js') }}"></script>
+<script src="<?php echo e(mix('/js/admin.js')); ?>"></script>
 </body>
 </html>
